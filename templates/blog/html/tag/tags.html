@@ -1,0 +1,34 @@
+<div id="secondary">
+    <section id="tags" class="widget-area widget_tags" >
+
+            <form action="{% url 'haystack_search' %}" method="get">
+
+                    <input type="text" name="q" value="搜索"
+                           style="font-size: 15px;
+                            letter-spacing: 1px;
+                            font-weight: 300;
+                            ">
+
+            </form>
+
+    </section>
+
+    <section id="tags" class="widget-area widget_tags">
+
+        <h3 class="widget-title">标签</h3>
+
+         <ul class="tag-list">
+             {% for tag_name in tag_name_list %}
+                <li class="tag-list-item">
+                    <a class="tag-list-link" href="{% url 'tag_list' tag_name.id %}">
+                    {{ tag_name.tag_name | upper}}
+                    </a>
+                <span class="tag-list-count">{{tag_name.article.count}}</span></li>
+
+        {% endfor %}
+
+        </ul>
+
+    </section>
+
+    </div>

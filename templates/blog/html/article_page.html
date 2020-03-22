@@ -1,0 +1,54 @@
+{% extends 'blog/html/base.html' %}
+{% load static %}
+{% block body %}
+
+    <div id="content" class="home">
+    <div id="primary">
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+
+          {{ page.title}}
+
+      </h1>
+
+    <div id="secondary">
+
+
+
+    </div>
+
+    </header>
+
+            <div>
+                {{ page.body|safe }}
+            </div>
+
+
+
+      <footer class="post-footer">
+      <div class="post-tags">
+
+          {% for foo in page.label.all %}
+              <a href="{% url 'tag_list' foo.id%}">{{ foo.tag_name }}</a>
+          {% endfor %}
+
+      </div>
+
+
+
+		<div class="post-tags">
+
+		</div>
+
+      </footer>
+
+  </article>
+</div>
+</div>
+
+
+{% endblock %}
+
+
+

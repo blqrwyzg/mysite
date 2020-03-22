@@ -1,0 +1,50 @@
+{% extends 'blog/html/base.html' %}
+{% load highlight %}
+{% block body %}
+<div id="content">
+<div id="primary">
+    <section id="archive" class="archive">
+          <div class="collection-title">
+            <h2 class="archive-year">搜索 "{{ query }}" </h2>
+              共{{ paginator.count }}条结果
+          </div>
+
+        {% if query %}
+
+            {% for foo in page.object_list  %}
+
+              <div class="archive-post">
+
+                <span class="archive-post-time">
+                    {{ foo.object.creation_time |date:'N d'  }}
+                </span>
+
+                <span class="archive-post-title">
+                  <a href="{% url 'specific_article' foo.object.id %}" class="archive-post-link">
+{#                    {{ foo.object.introduction }}#}
+                      {% highlight foo.object.introduction with query%}
+                  </a>
+                </span>
+
+              </div>
+                {% empty %}
+                <h3>没有相关内容</h3>
+            {% endfor %}
+        {% endif %}
+
+    </section>
+
+
+
+
+</div>
+</div>
+
+    <style>
+        span.highlighted {
+            color: green;
+        }
+    </style>
+
+
+{% endblock %}

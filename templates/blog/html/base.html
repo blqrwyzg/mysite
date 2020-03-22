@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'prism/prism.css' %}">
+    <script src="{% static 'ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js' %}"></script>
+    <title>博客</title>
+
+</head>
+
+
+  <body>
+
+
+
+{#头部#}
+  <div id="page">
+  <header id="masthead">
+
+      <div class="site-header-inner">
+            <h1 class="site-title"><a href="{% url 'index' %}" class="logo">Liu'zy  博客</a>
+
+            </h1>
+
+            <nav id="nav-top">
+
+            <ul id="menu-top" class="nav-top-items">
+
+
+                <li class="menu-item">
+
+
+
+
+                    <li class="menu-item">
+                        <a href="{% url 'page_label' %}">
+                                记录
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{% url 'about_me' %}">
+                                我
+                        </a>
+                    </li>
+
+
+
+
+            </ul>
+
+        </nav>
+      </div>
+  </header>
+  </div>
+
+
+
+
+{#内容#}
+  {% block body %}
+
+  {% endblock %}
+
+
+
+    <footer id="colophon"><span class="copyright-year">
+
+    <span class="footer-author">@2020</span>
+
+    </span></footer>
+
+  </body>
+
+
+
+
+</html>

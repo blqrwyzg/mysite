@@ -1,0 +1,40 @@
+{% extends 'blog/html/base.html' %}
+{% load tag_list %}
+{% block body %}
+
+<div id="content">
+    {% Lable_Tag_Name %}
+<div id="primary">
+
+  <section id="archive" class="archive">
+
+      <div class="collection-title">
+          <h2 class="archive-year">2020</h2>
+      </div>
+
+      {% for foo in time_page %}
+
+
+
+          <div class="archive-post">
+
+            <span class="archive-post-time">
+                {{ foo.creation_time | date:'b d'  }}
+            </span>
+
+            <span class="archive-post-title">
+              <a href="{% url 'specific_article' foo.id %}" class="archive-post-link">
+                {{ foo.introduction }}
+              </a>
+            </span>
+
+          </div>
+
+      {% endfor %}
+
+  </section>
+</div>
+
+</div>
+
+{% endblock %}
